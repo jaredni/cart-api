@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: password
   web:
     build: .
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
