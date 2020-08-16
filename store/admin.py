@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from store.models import Supplier
+
+
+@admin.register(Supplier)
+class SupplierAdmin(admin.ModelAdmin):
+    pass
