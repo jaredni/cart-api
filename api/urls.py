@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.urls import path
 
 from drf_yasg import openapi
@@ -27,5 +27,7 @@ schema_view = get_swagger_view(title='Online Grocery API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/auth/', include('rest_framework.urls')),
+    path('api/store/', include(("store.urls", "stores"), namespace="stores")),
     url(r'^swagger', schema_view)
 ]
